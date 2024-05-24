@@ -4,6 +4,8 @@
 
 Este projeto é um carrossel de destinos turísticos implementado em HTML, CSS e JavaScript. Ele exibe uma lista de destinos com imagens, descrições e botões de ação para saber mais e acessar informações adicionais. O carrossel possui setas de navegação que permitem aos usuários navegar pelos itens da lista.
 
+![Alt text](<Screenshot 2024-05-24 alle 16.45.13.png>)
+
 ### Estrutura do Projeto
 
 O projeto é composto pelos seguintes arquivos:
