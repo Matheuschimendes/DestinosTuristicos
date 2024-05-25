@@ -16,15 +16,19 @@ function moveItemsOnclick(type){
     let thumbItems = document.querySelectorAll('.thumb .thumb-item');
    
 
-    if(type === 'next'){
-
+    if (type === 'next') {
         list.appendChild(listItems[0]);
         thumb.appendChild(thumbItems[0]);
-        console.log(list)
-        
-    }else {
+        container.classList.add('next') // Adicionadno class para o CSS
+    } else {
         list.prepend(listItems[listItems.length - 1]);
         thumb.prepend(thumbItems[listItems.length - 1]);
+        container.classList.add('back') // Adicionadno class para o CSS
     }
-    console.log(type)
-}
+
+    setTimeout( () => {
+        container.classList.remove('next') // remove class para o CSS
+        container.classList.remove('back') // remove class para o CSS
+    }, 3000);
+    
+} 

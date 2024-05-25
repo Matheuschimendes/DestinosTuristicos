@@ -87,81 +87,171 @@ header a {
 }
 
 .container .list .list-item .button button:hover {
-    background-color: transparent;
-    border: 1px solid #eee;
-    color: #eee;
-    transition: 0.7s;
+  background-color: transparent;
+  border: 1px solid #eee;
+  color: #eee;
+  transition: 0.7s;
 }
 
 .container .list .list-item .button button:nth-child(2) {
-    background-color:  transparent;
-    border: 1px solid #eee;
-    color: #eee;
+  background-color: transparent;
+  border: 1px solid #eee;
+  color: #eee;
 }
 
 .container .list .list-item .button button:nth-child(2):hover {
-    background-color:  #eee;
-    color: #000;
+  background-color: #eee;
+  color: #000;
 }
 
 .container .thumb {
-    position:absolute;
-    bottom: 50px;
-    left: 50%;
-    display: flex;
-    gap: 20px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  display: flex;
+  gap: 20px;
 }
 
 .container .thumb .thumb-item {
-    width: 135px;
-    height: 200px;
-    position: relative;
+  width: 135px;
+  height: 200px;
+  position: relative;
+  z-index: 3;
 }
 
-.container .thumb .thumb-item  img {
-    width: 100%;
-    height: 100%; 
-    object-fit: cover;
-    border-radius: 10px;
-    filter: brightness(80%);
+.container .thumb .thumb-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: brightness(80%);
 }
 
-.container .thumb .content{
-    color: #eee;
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-
+.container .thumb .content {
+  color: #eee;
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
 }
 
 .container .arrows {
-    display: flex;
-    position: absolute;
-    bottom: 120px;
-    gap: 10px;
-    left: 140px;
-    width: 300px;
+  display: flex;
+  position: absolute;
+  bottom: 120px;
+  gap: 10px;
+  left: 140px;
+  width: 300px;
 }
 
 .container .arrows button {
+  border-radius: 10px;
+  border: none;
+  padding: 12px 17px;
+  background-color: #eee4;
+  color: #eee;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.container .arrows button:hover {
+  background-color: #eee;
+  color: #000;
+  transition: 0.7s;
+}
+
+/* Movimento da Thumb */
+.container.next .thumb {
+  animation: effectNextThumb 0.5s linear 1 forwards;
+}
+
+@keyframes effectNextThumb {
+  from {
+    transform: translateX(150px);
+  }
+}
+
+/* Movimento última Thumb */
+.container.next .thumb .thumb-item:nth-last-child(1) {
+  animation: effectLastThumb 0.5s linear 1 forwards;
+}
+
+@keyframes effectLastThumb {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+}
+
+
+/* Textos Principais */
+
+.container .list .list-item:nth-last-child(1) .content .title,
+.container .list .list-item:nth-last-child(1) .content .description,
+.container .list .list-item:nth-last-child(1) .content .button {
+  transform: translateY(50px);
+  filter: blur(20px);
+  opacity: 0;
+  animation: showContent 0.5s 1s linear 1 forwards;
+}
+
+@keyframes showContent {
+  to {
+    transform: translateY(0);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.container .list .list-item:nth-last-child(1) .content .title {
+  animation-delay: 1.2s;
+}
+
+.container .list .list-item:nth-last-child(1) .content .description {
+  animation-delay: 1.6s;
+}
+
+.container .list .list-item:nth-last-child(1) .content .button {
+  animation-delay: 2s;
+}
+
+/* Image Principal Next */
+.container .list .list-item:nth-last-child(1) img {
+  width: 150px;
+  height: 220px;
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  border-radius: 30px;
+
+  animation: showMainImage 0.5s linear 1 forwards;
+}
+
+@keyframes showMainImage {
+  to {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+/* Image Principal Back*/
+.container.back .list .list-item:nth-child(1) img {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: hideMainImage 0.5s linear 1 forwards;
+  z-index: 1;
+}
+
+@keyframes hideMainImage {
+  to {
+    width: 135px;
+    height: 200px;
     border-radius: 10px;
-    border: none;
-    padding: 12px 17px;
-    background-color: #eee4;
-    color: #eee;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 1.5rem;
+    left: 50%;
+    bottom: 50px;
+  }
 }
-
-.container .arrows button:hover{
-    background-color: #eee;
-    color: #000;
-    transition: 0.7s;
-}
-
-
-
-
-
-
